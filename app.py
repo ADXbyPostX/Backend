@@ -22,7 +22,7 @@ os.makedirs(FINGERPRINT_PATH, exist_ok=True)
 
 @app.route('/')
 def index():
-    return 'ADX Flask Backend is Running!'
+    return 'ADX-Backend is read to recieve Audio chunks and fingerprints. Up and Ready!'
 
 @app.route('/upload', methods=['POST'])
 def upload_file():

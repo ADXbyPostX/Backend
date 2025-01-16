@@ -3,3 +3,5 @@ scipy
 docopt
 joblib
 psutil
+flask
+gunicorn
