@@ -22,7 +22,7 @@ os.makedirs(FINGERPRINT_PATH, exist_ok=True)
 
 @app.route('/api/')
 def index():
-    return 'ADX Flask Backend is Ready! usee `/api/upload` or `/api/match`.'
+    return 'ADX Flask Backend is on the go! usee `/api/upload` or `/api/match`.'
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
