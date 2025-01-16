@@ -7,7 +7,8 @@
 
 ---
 
-The ADX Flask Backend is a RESTful API built using Flask, a lightweight Python web framework. It utilizes the Audfprint library for audio fingerprinting and matching.
+The ADX Flask Backend is a RESTful API built using Flask, a lightweight Python web framework.
+It utilizes the Audfprint library for audio fingerprinting and matching.
 
 ## Endpoints
 
