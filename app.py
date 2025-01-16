@@ -20,11 +20,11 @@ VENV_PYTHON = os.path.join(BASE_DIR, 'venv', 'Scripts', 'python.exe') if os.name
 os.makedirs(TEMP_AUDIO_PATH, exist_ok=True)
 os.makedirs(FINGERPRINT_PATH, exist_ok=True)
 
-@app.route('/')
+@app.route('/api/')
 def index():
-    return 'ADX-Backend is ready to receive Audio chunks and fingerprints. Up and Ready!'
+    return 'ADX Flask Backend is Ready! Use `/api/upload` or `/api/match`.'
 
-@app.route('/upload', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     try:
         print("Received upload request.")
@@ -53,7 +53,7 @@ def upload_file():
         print(f"Error during file upload: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/match', methods=['POST'])
+@app.route('/api/match', methods=['POST'])
 def match_audio():
     try:
         print("Received match request.")
@@ -113,12 +113,12 @@ def match_audio():
         clear_directories()  # Clear directories on exception
         return jsonify({"error": str(e)}), 500
 
-@app.route('/clear_files', methods=['POST'])
+@app.route('/api/clear_files', methods=['POST'])
 def clear_files():
     """Clear temp_audio and fingerprints directories."""
     try:
         clear_directories()
-        print("Cleared temp_audio and fingerprints directories via /clear_files.")
+        print("Cleared temp_audio and fingerprints directories via /api/clear_files.")
         return jsonify({"message": "Directories cleared successfully"})
     except Exception as e:
         print(f"Error clearing directories: {str(e)}")
