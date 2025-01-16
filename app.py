@@ -22,7 +22,7 @@ os.makedirs(FINGERPRINT_PATH, exist_ok=True)
 
 @app.route('/')
 def index():
-    return 'ADX-Backend is read to recieve Audio chunks and fingerprints. Up and Ready!'
+    return 'ADX-Backend is ready to receive Audio chunks and fingerprints. Up and Ready!'
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -193,6 +193,7 @@ def clear_directories():
         print(f"Error clearing directories: {str(e)}")
 
 if __name__ == "__main__":
-    print("Starting Flask server on port 5000...")
-    app.run(debug=True, host='0.0.0.0', port=5000)
-    
+    # Use dynamic port for deployment in Cloud Run
+    port = int(os.environ.get("PORT", 8080))  # Default to 8080 if PORT is not set
+    print(f"Starting Flask server on port {port}...")
+    app.run(debug=False, host='0.0.0.0', port=port)

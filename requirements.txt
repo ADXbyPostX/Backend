@@ -5,3 +5,6 @@ joblib
 psutil
 flask
 gunicorn
+Flask
+Flask-Cors
+ffmpeg-python
